@@ -28,7 +28,6 @@ public class Tree
 
     /**
         Constructs an empty tree.
-        Secret Message
     */
     public Tree()
     {
