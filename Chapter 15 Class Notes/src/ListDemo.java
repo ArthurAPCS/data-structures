@@ -66,7 +66,7 @@ public class ListDemo
 
         for (String n: staff){
             System.out.print(n + " ");
-        }
+        }       
 
         System.out.println();
 
