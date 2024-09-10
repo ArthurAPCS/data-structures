@@ -30,6 +30,7 @@ public class Sieve
                     iterator.remove();
 
         }
-        System.out.println(sieve);
+        System.out.println(sieve); 
     }
 }
+
