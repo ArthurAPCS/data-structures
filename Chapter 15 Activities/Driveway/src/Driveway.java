@@ -33,7 +33,10 @@ public class Driveway
     public void add(int licensePlate)
     {
         // Complete this method
-        driveway.push(licensePlate);
+        if (!(driveway.contains(licensePlate) || street.contains(licensePlate)))
+          driveway.push(licensePlate);
+        else
+          System.out.println("Car already found");
     }
 
     /**
@@ -43,13 +46,16 @@ public class Driveway
     */
     public void remove(int licensePlate)
     {
-        while(!(driveway.isEmpty()))
-        {
-          int next = driveway.pop();
-          if (next == licensePlate)
-            break;
-          street.push(next);
-        }
+        if (driveway.contains(licensePlate))
+          while(!(driveway.isEmpty()))
+          {
+            int next = driveway.pop();
+            if (next == licensePlate)
+              break;
+            street.push(next);
+          }
+        else
+          System.out.println("No such car found.");
     }
 
     /**

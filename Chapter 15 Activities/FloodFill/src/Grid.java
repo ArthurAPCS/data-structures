@@ -37,6 +37,12 @@ public class Grid
                 if (pixels[r][c - 1] == 0)
                     squares.push(new Pair(r, c - 1));
         }
+        for (int[] y : pixels)
+        {
+            for (Integer x : y)
+                System.out.print(x + " ");
+            System.out.println();
+        }
     }
 
     @Override
