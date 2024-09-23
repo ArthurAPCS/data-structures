@@ -17,13 +17,33 @@ public class HTMLChecker
 {
     public static void main(String[] args)
     {
-        String filename = "src/TagSample1.html";
+        String filename = "Chapter 15 Activities/HTMLChecker/src/TagSample1.html";
+        Stack<String> htmls = new Stack<>();
+        boolean good = true;
 
         try (Scanner in = new Scanner(new File(filename)))
         {
-            // Your code goes here
-            . . .
-
+            String nextTag = in.next();
+            htmls.push(nextTag);
+            while (in.hasNext())
+            {
+                nextTag = in.next();
+                if (nextTag.substring(1, 2).equals("/"))
+                {
+                    String prevTag = htmls.pop();
+                    if (!(prevTag.substring(1, prevTag.length() - 1).equals(nextTag.substring(2, nextTag.length() - 1))))
+                    {
+                        good = false;
+                        break;
+                    }
+                }
+                else
+                    htmls.push(nextTag);
+            }
+            if (good == true)
+                System.out.println("Good HTML");
+            else
+                System.out.println("Bad HTML");
 
         } catch (FileNotFoundException e)
         {
