@@ -34,7 +34,10 @@ public class Driveway
     {
         // Complete this method
         if (!(driveway.contains(licensePlate) || street.contains(licensePlate)))
+        {
           driveway.push(licensePlate);
+          print();  
+        }
         else
           System.out.println("Car already found");
     }
@@ -47,6 +50,7 @@ public class Driveway
     public void remove(int licensePlate)
     {
         if (driveway.contains(licensePlate))
+        {
           while(!(driveway.isEmpty()))
           {
             int next = driveway.pop();
@@ -54,6 +58,8 @@ public class Driveway
               break;
             street.push(next);
           }
+          print();
+        }
         else
           System.out.println("No such car found.");
     }
