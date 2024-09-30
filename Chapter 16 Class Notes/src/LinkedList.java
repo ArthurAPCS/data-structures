@@ -77,6 +77,53 @@ public class LinkedList
     {
         return new LinkedListIterator();
     }
+    
+    /**
+    * Checks if the element is contained in the linked list
+    * @param element the element to be checked
+    */
+    public boolean contains(Object obj)
+    {
+        Node n = first;
+        while (n != null)
+        {
+            if (n.data.equals(obj))
+                return true;
+            n = n.next;
+        }
+        return false;
+    }
+
+    /**
+     * Checks if the element is contained in the linked list
+     * @param start the starting node to check from
+     * @param obj the element to be checked
+     */
+    private static boolean contains(Node start, Object obj)
+    {
+        if (start == null)
+            return false;
+
+        if (start.data.equals(obj))
+            return true;
+        
+        return contains(start.next, obj);
+    }
+
+    /**
+     * Returns the size of the linked list
+     */
+    public int size()
+    {
+        Node n = first;
+        int sum = 0;
+        while (n != null)
+        {
+            sum++;
+            n = n.next;
+        }
+        return sum;
+    }
 
 
     public String toString()
@@ -84,8 +131,8 @@ public class LinkedList
         String data = "[";
         ListIterator iter = this.listIterator();
         while (iter.hasNext())
-            data = data + iter + ", ";
-        data = data.substring(0, data.length() - 1);
+            data = data + iter.next() + ", ";
+        data = data.substring(0, data.length() - 2);
         return data + "]";
     }
 
@@ -230,8 +277,6 @@ public class LinkedList
 
             position.data = element;
         }
-
-
 
 
     }//LinkedListIterator

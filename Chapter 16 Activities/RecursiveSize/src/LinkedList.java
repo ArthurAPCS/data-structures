@@ -26,7 +26,18 @@ public class LinkedList
     */
     public int size()
     {
-        . . .
+        return size(this.first);
+    }
+
+    /**
+     * Computes the size of the shortened list
+     * @return size of the shortened list
+     */
+    private static int size(Node start)
+    {
+        if (start == null)
+            return 0;
+        return 1 + size(start.next);
     }
 
 
