@@ -223,7 +223,7 @@ public class LinkedList
                 Node newNode = new Node();
                 newNode.data = element;
                 newNode.next = position.next;
-                // Set the next element of the CURRENT positiont o point to our new node
+                // Set the next element of the CURRENT position to point to our new node
                 position.next = newNode;
                 position = newNode;
             }

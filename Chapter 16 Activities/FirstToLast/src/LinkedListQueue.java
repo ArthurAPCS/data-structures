@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 /**
     Add a method firstToLast to this implementation of a queue.
     The method moves the element at the head of the queue to
@@ -23,10 +25,13 @@ public class LinkedListQueue
     */
     public void firstToLast()
     {
-        . . .
-
-
-
+        if (tail == null)
+            throw new NoSuchElementException();
+        Node curHead = head;
+        head = head.next;
+        curHead.next = null;
+        tail.next = curHead;
+        tail = curHead;
     }
 
     /**
