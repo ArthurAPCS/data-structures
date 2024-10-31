@@ -1,3 +1,5 @@
+
+
 /**
     A binary tree in which each node has two children.
 */
@@ -10,7 +12,7 @@ public class BinaryTree
     */
     public BinaryTree()
     {
-         
+        root = null;
     } 
 
     /**
@@ -19,7 +21,10 @@ public class BinaryTree
     */
     public BinaryTree(Object rootData) 
     {
-        
+        root = new Node();
+        root.data = rootData;
+        root.left = null;
+        root.right = null;
     }
 
     /**
@@ -30,12 +35,16 @@ public class BinaryTree
     */
     public BinaryTree(Object rootData, BinaryTree left, BinaryTree right)
     {
-        
+        this(rootData);
+        root.left = left.root;
+        root.right = right.root;
     }
     
     static class Node
     {
-        
+        public Object data;
+        public Node right;
+        public Node left;
     }
 
     /**
@@ -45,7 +54,9 @@ public class BinaryTree
     */
     private static int height(Node n)
     {
-        return 0;
+        if (n == null)
+            return 0;
+        return 1 + Math.max(BinaryTree.height(n.right), BinaryTree.height(n.left));
     }
 
     /**
@@ -54,7 +65,7 @@ public class BinaryTree
     */
     public int height()
     {
-        return 0;
+        return BinaryTree.height(this.root);
     }
 
     /**
@@ -63,7 +74,7 @@ public class BinaryTree
     */
     public boolean isEmpty()
     {
-         return false;
+        return this.root == null;
     }
 
     /**
@@ -72,7 +83,7 @@ public class BinaryTree
     */
     public Object data()
     {
-         return null;
+         return this.root.data;
     }
     
     /**
@@ -81,7 +92,9 @@ public class BinaryTree
     */
     public BinaryTree left() 
     { 
-        return null;
+        BinaryTree subtree = new BinaryTree();
+        subtree.root = this.root.left;
+        return subtree;
     }
 
     /**

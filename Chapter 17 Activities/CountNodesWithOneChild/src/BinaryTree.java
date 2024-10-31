@@ -50,6 +50,18 @@ public class BinaryTree
         public Object data;
         public Node left;
         public Node right;
+
+        public int countNodesWithOneChild()
+        {
+            if (this.left == null && this.right != null)
+                return 1 + this.right.countNodesWithOneChild();
+            if (this.right == null & this.left != null)
+                return 1 + this.left.countNodesWithOneChild();
+            if (this.right != null & this.left != null)
+                return this.right.countNodesWithOneChild() + this.left.countNodesWithOneChild();
+            else
+                return 0;
+        }
     }
 
     /**
@@ -101,5 +113,10 @@ public class BinaryTree
         BinaryTree result = new BinaryTree();
         result.root = root.right;
         return result;
+    }
+
+    public int countNodesWithOneChild()
+    {
+        return this.root.countNodesWithOneChild();
     }
 }
