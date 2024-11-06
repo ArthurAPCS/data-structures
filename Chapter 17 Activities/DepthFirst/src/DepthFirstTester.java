@@ -1,4 +1,3 @@
-import java.util.Iterator;
 
 /**
     This program demonstrates tree traversal.
@@ -31,6 +30,5 @@ public class DepthFirstTester
         t1.depthFirst(visitor);
         System.out.println();
         System.out.println("Expected: Anne Peter Sonia Mike Jane Sam Zara");
-
     }
 }
